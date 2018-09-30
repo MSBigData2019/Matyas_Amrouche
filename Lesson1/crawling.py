@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 website_prefix = "http://www.purepeople.com"
 def _handle_request_result_and_build_soup(request_result):
   if request_result.status_code == 200:
-    html_doc =  request_result.text
+    html_doc = request_result.text
     soup = BeautifulSoup(html_doc,"html.parser")
     return soup
 

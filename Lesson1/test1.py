@@ -15,8 +15,7 @@ def array_front9(nums):
       if (index <= 3) and (element == 9):
         return True
     return False
-    #longueur=min(len(nums) & 4)
-    return
+
 
 # Given a string, return the count of the number of times
 # that a substring length 2 appears  in the string and also as
@@ -140,8 +139,8 @@ class Lesson1Tests(unittest.TestCase):
         self.assertEqual(number2digits(8849) , [8,8,4,9])
         self.assertEqual(number2digits(4985098) , [4,9,8,5,0,9,8])
 
-    def testPigLatin(self):
-        self.assertEqual(pigLatin("The quick brown fox") , "Hetay uickqay rownbay oxfay")
+    # def testPigLatin(self):
+    #     self.assertEqual(pigLatin("The quick brown fox") , "Hetay uickqay rownbay oxfay")
 
 
 
