@@ -16,16 +16,21 @@ def recup_source_code(link):
 
 def get_data(link):
     page_content = recup_source_code(link)
-    #data = page_content.findAll('td', {'class' : 'data'})
-    data_value = page_content.find("td", class_= 'data').text
+    data = page_content.findAll('td', {'class' : 'data'})
+
+    data_value = []
+    for d in data:
+        data_value += [d.text]
+
     return data_value
 
+#def financial_performances(data):
 
 def main() :
     link = web_prefix+companies[0]+exchange_places[0]
     #print(recup_source_code(web_prefix+companies[0]+exchange_places[0]))
 
-    print(get_data(link)[0])
+    print(get_data(link))
 
 if __name__ == '__main__':
     main()
