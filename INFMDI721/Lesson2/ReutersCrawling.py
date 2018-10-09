@@ -14,11 +14,18 @@ def recup_source_code(link):
     return page_content
 
 
+def get_data(link):
+    page_content = recup_source_code(link)
+    #data = page_content.findAll('td', {'class' : 'data'})
+    data_value = page_content.find("td", class_= 'data').text
+    return data_value
 
 
 def main() :
-    print(recup_source_code(web_prefix+companies[0]+exchange_places[0]))
+    link = web_prefix+companies[0]+exchange_places[0]
     #print(recup_source_code(web_prefix+companies[0]+exchange_places[0]))
+
+    print(get_data(link)[0])
 
 if __name__ == '__main__':
     main()
