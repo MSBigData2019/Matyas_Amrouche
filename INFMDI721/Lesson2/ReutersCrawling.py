@@ -24,13 +24,22 @@ def get_data(link):
 
     return data_value
 
-#def financial_performances(data):
+def financial_performances(data):
+    indexOfValues = {}
+    indexOfValues["Sales estimates (in M) Quarter Ending Dec-18"] = 0
+    indexOfValues["Divide Yield of company"] = 67
+    indexOfValues["Divide Yield of sector"] = 69
+    indexOfValues["Divide Yield of industry"] = 68
+
+    for i in indexOfValues.keys():
+        print(i, " : ", data[indexOfValues.get(i)])
+
 
 def main() :
     link = web_prefix+companies[0]+exchange_places[0]
-    #print(recup_source_code(web_prefix+companies[0]+exchange_places[0]))
+    print("Data for ", companies[0], " on the ", exchange_places[0], " exchange place")
 
-    print(get_data(link))
+    financial_performances(get_data(link))
 
 if __name__ == '__main__':
     main()
