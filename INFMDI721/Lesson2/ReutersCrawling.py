@@ -38,7 +38,7 @@ def get_sales_dividend_holders(data):
     indexOfValues["Dividend Yield of company"] = 67
     indexOfValues["Dividend Yield of sector"] = 69
     indexOfValues["Dividend Yield of industry"] = 68
-    indexOfValues["% of shares holds by instutional holders"] = 213
+    indexOfValues["% of shares owned by instutional holders"] = 213
 
     for i in indexOfValues.keys():
         result[i] = data[indexOfValues.get(i)]
