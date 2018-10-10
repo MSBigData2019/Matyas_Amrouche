@@ -31,13 +31,14 @@ def get_data1(link):
 
 # Les balises 'data' ne sont pas identifiables les unes des autres
 # Créer un dictionnaire des valeurs recherchées et de leur index dans la page (extrait manuellement)
-def get_sales_and_dividend(data):
+def get_sales_dividend_holders(data):
     indexOfValues = {}
     result = {}
     indexOfValues["Sales estimates (in M) Quarter Ending Dec-18"] = 0
     indexOfValues["Dividend Yield of company"] = 67
     indexOfValues["Dividend Yield of sector"] = 69
     indexOfValues["Dividend Yield of industry"] = 68
+    indexOfValues["% of shares holds by instutional holders"] = 213
 
     for i in indexOfValues.keys():
         result[i] = data[indexOfValues.get(i)]
@@ -64,13 +65,14 @@ def get_share_percentage(link):
 
 
 
+
 def main() :
 
     for i in range(0,len(companies)):
         link = web_prefix + companies[i] + exchange_places[0]
         print("Fiancial performaces data for", companies[i], "on the", exchange_places[0], "exchange place")
-        for s in get_sales_and_dividend(get_data1(link)).keys():
-            print(s + " : " + get_sales_and_dividend(get_data1(link)).get(s))
+        for s in get_sales_dividend_holders(get_data1(link)).keys():
+            print(s + " : " + get_sales_dividend_holders(get_data1(link)).get(s))
         print("Share price on the " + now.strftime("%Y-%m-%d %H:%M") + " : " + get_share_price(link) + " €")
         print("Share change % on the " + now.strftime("%Y-%m-%d %H:%M") + " : " +get_share_percentage(link))
 
