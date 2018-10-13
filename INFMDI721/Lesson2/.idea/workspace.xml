@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad1a0e89-ef1c-46eb-89b6-9f6d9df00245" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Lesson3/Acer_vs_Dell.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReutersCrawling.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReutersCrawling.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lesson3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lesson3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lesson3/Acer_vs_Dell.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Lesson3/Acer_vs_Dell.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +17,11 @@
     <session id="136077141">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -49,12 +51,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ReutersCrawling.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="35" lean-forward="true" selection-end-line="79" selection-end-column="10" />
+            <state relative-caret-position="702">
+              <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
               <folding>
                 <element signature="e#16#31#0" expanded="true" />
-                <marker date="1539162163464" expanded="true" signature="1524:2121" ph="..." />
-                <marker date="1539162163464" expanded="true" signature="2712:2713" ph="..." />
+                <marker date="1539347161059" expanded="true" signature="1522:2117" ph="..." />
+                <marker date="1539347161059" expanded="true" signature="2707:2708" ph="..." />
               </folding>
             </state>
           </provider>
@@ -84,7 +86,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="827" />
@@ -161,12 +163,12 @@
     <frame x="0" y="23" width="1440" height="827" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15785764" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15785764" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.39591837" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2244898" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -186,12 +188,12 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ReutersCrawling.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="35" lean-forward="true" selection-end-line="79" selection-end-column="10" />
+        <state relative-caret-position="702">
+          <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
           <folding>
             <element signature="e#16#31#0" expanded="true" />
-            <marker date="1539162163464" expanded="true" signature="1524:2121" ph="..." />
-            <marker date="1539162163464" expanded="true" signature="2712:2713" ph="..." />
+            <marker date="1539347161059" expanded="true" signature="1522:2117" ph="..." />
+            <marker date="1539347161059" expanded="true" signature="2707:2708" ph="..." />
           </folding>
         </state>
       </provider>
