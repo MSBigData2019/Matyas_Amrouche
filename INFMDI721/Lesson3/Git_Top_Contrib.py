@@ -3,10 +3,10 @@ import requests
 import unittest
 from bs4 import BeautifulSoup
 import pandas as pd
+from multiprocessing import Pool
 
 
 ####################### Crawling Github ###############################
-
 
 # Lien de la liste des top contributeurs de GitHub
 link = 'https://gist.github.com/paulmillr/2657075'
@@ -17,30 +17,13 @@ def recup_source_code(link):
     page_content = BeautifulSoup(page_response.content, "html.parser")
     return page_content
 
-
 # Récupère l'ensemble des 256 top contributeurs Git
 def get_list_contributors(link):
     page_content = recup_source_code(link)
-    data = page_content.findAll('td')
-
-    contributors = []
-    for i in range(0, len(data)):
-        if data[i].find('a'):
-            contributors.append(data[i].findChild().text)
-
-
-    list_contributors = pd.DataFrame(contributors, columns=['Contributors'])
-    filter1 = list_contributors["Contributors"] != ""
-    filter2 = list_contributors["Contributors"] != "https://twitter.com/nzgb"
-    list_contributors_bis = list_contributors[filter1]
-    list_contributors_final = list_contributors_bis[filter2]
-    list_contributors_final = list_contributors_final.reset_index(drop=True)
-
-    return list_contributors_final[0:256]
-
-
-
-
+    data = page_content.findAll('tr')
+    result = list(map(lambda x: x.find('a').text, data[1:257]))
+    list_contributors = pd.DataFrame(result, columns=['Contributors'])
+    return list_contributors
 
 ############################ Git API ###############################
 
@@ -57,7 +40,7 @@ def get_json_data(contributor):
 
 # Nombre de stars moyen pour chaque contributeur
 def get_average_stars(list_contributors):
-    rated_contributors = pd.DataFrame(columns=['Contributor', 'Average Stars'])
+    rated_contributors = pd.DataFrame(columns=['Contributors', 'Average Stars'])
     for i in range(0, list_contributors.count().values[0]):
         data = get_json_data(list_contributors.ix[i, 0])
         stars = 0
@@ -68,17 +51,13 @@ def get_average_stars(list_contributors):
         else:
             moyenne = round(stars/len(data), 2)
         rated_contributors.loc[i] = [list_contributors.ix[i, 0], moyenne]
-
     return rated_contributors.sort_values(['Average Stars'], ascending=False)
 
 
-
 def main() :
-    list_contributors = get_list_contributors(link)
-
+    list_contributors = get_list_contributors(link)[0:3]
     rated_contributors = get_average_stars(list_contributors)
     print(rated_contributors)
-
 
 if __name__ == '__main__':
     main()
