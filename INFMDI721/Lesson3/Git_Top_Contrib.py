@@ -4,6 +4,7 @@ import unittest
 from bs4 import BeautifulSoup
 import pandas as pd
 from multiprocessing import Pool
+import time
 
 
 ####################### Crawling Github ###############################
@@ -28,36 +29,62 @@ def get_list_contributors(link):
 ############################ Git API ###############################
 
 # Fichier contenant la token pour l'API Git
-git_token = pd.read_csv('/tmp/git_token.txt', header=None).ix[0, 0]
+git_token = pd.read_csv('/Users/matyasamrouche/Documents/Master Telecom Big Data/Token/git_token.txt', header=None).ix[0, 0]
 
 # Récupère les données du contibuteur souhaité
-def get_json_data(contributor):
-    url = 'https://api.github.com/users/'+contributor+'/repos'
-    res = requests.get(url, headers={"Authorization": 'token %s' % git_token})
+def get_json_data_all_repos(contributor, i):
+    url_test = 'https://api.github.com/users/'+contributor+'/repos?page='+str(i)+'&per_page=100'
+    res = requests.get(url_test, headers={"Authorization": 'token %s' % git_token})
     repos = res.json()
     return repos
 
 
+def get_stars_contributor(contributor_repos):
+    stars = 0
+    for repo in contributor_repos:
+        #print(type(repo))
+        if type(repo) is dict:
+            stars += repo['stargazers_count']
+    #stars = sum(repo['stargazers_count'] for repo in contributor_repos)
+    return stars
+
+def average_stars(contributor):
+    i = 1
+    stars = 0
+    nb_repos = 0
+    while len(get_json_data_all_repos(contributor, i)) > 0:
+        contributor_repos = get_json_data_all_repos(contributor, i)
+        stars += get_stars_contributor(contributor_repos)
+        nb_repos += len(contributor_repos)
+        i += 1
+    if nb_repos == 0:
+        average = 0
+    else:
+        average = round(stars / nb_repos, 1)
+    #print(contributor, average, nb_repos)
+    return average
+
+
 # Nombre de stars moyen pour chaque contributeur
-def get_average_stars(list_contributors):
+def get_average_stars_bis(list_contributors):
     rated_contributors = pd.DataFrame(columns=['Contributors', 'Average Stars'])
-    for i in range(0, list_contributors.count().values[0]):
-        data = get_json_data(list_contributors.ix[i, 0])
-        stars = 0
-        for j in range(0, len(data)):
-            stars += data[j]['stargazers_count']
-        if len(data) == 0:
-            moyenne = 0
-        else:
-            moyenne = round(stars/len(data), 2)
-        rated_contributors.loc[i] = [list_contributors.ix[i, 0], moyenne]
+    pool = Pool(5)
+    average_list = list(pool.map(average_stars, list_contributors['Contributors']))
+    rated_contributors['Contributors'] = list_contributors['Contributors']
+    rated_contributors['Average Stars'] = average_list
     return rated_contributors.sort_values(['Average Stars'], ascending=False)
 
 
+
 def main() :
-    list_contributors = get_list_contributors(link)[0:3]
-    rated_contributors = get_average_stars(list_contributors)
+    start_time = time.time()
+    list_contributors = get_list_contributors(link)
+    rated_contributors = get_average_stars_bis(list_contributors)
     print(rated_contributors)
+    print("--- %s seconds ---" % (time.time() - start_time))
 
 if __name__ == '__main__':
     main()
+
+
+
