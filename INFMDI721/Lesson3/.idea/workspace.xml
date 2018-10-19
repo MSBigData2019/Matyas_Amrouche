@@ -15,16 +15,16 @@
     <session id="-60436363">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="14" />
+          <entry key="project.closed" value="15" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="4" />
+          <entry key="project.open.time.4" value="5" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -39,12 +39,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4792" />
+          <entry key="py" value="4937" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="4792" />
+          <entry key="Python" value="4937" />
         </counts>
       </usages-collector>
     </session>
@@ -54,14 +54,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Git_Top_Contrib.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+            <state relative-caret-position="68">
+              <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
               <folding>
                 <element signature="e#16#31#0" expanded="true" />
-                <marker date="1539903593529" expanded="true" signature="1106:1712" ph="..." />
-                <marker date="1539903593529" expanded="true" signature="1421:1712" ph="..." />
-                <marker date="1539903593529" expanded="true" signature="1745:2191" ph="..." />
-                <marker date="1539903593529" expanded="true" signature="2722:2727" ph="..." />
+                <marker date="1539948348104" expanded="true" signature="1106:1672" ph="..." />
+                <marker date="1539948348104" expanded="true" signature="1516:1672" ph="..." />
               </folding>
             </state>
           </provider>
@@ -71,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/pool_test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="15" />
+              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -109,6 +107,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -120,7 +119,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -260,7 +258,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49964765" visible="true" weight="0.34666666" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49964765" visible="true" weight="0.27333334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39866668" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -307,24 +305,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pool_test.py">
+    <entry file="file://$PROJECT_DIR$/Git_Top_Contrib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="15" />
+        <state relative-caret-position="68">
+          <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+          <folding>
+            <element signature="e#16#31#0" expanded="true" />
+            <marker date="1539948348104" expanded="true" signature="1106:1672" ph="..." />
+            <marker date="1539948348104" expanded="true" signature="1516:1672" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Git_Top_Contrib.py">
+    <entry file="file://$PROJECT_DIR$/pool_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
-          <folding>
-            <element signature="e#16#31#0" expanded="true" />
-            <marker date="1539903593529" expanded="true" signature="1106:1712" ph="..." />
-            <marker date="1539903593529" expanded="true" signature="1421:1712" ph="..." />
-            <marker date="1539903593529" expanded="true" signature="1745:2191" ph="..." />
-            <marker date="1539903593529" expanded="true" signature="2722:2727" ph="..." />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="15" />
         </state>
       </provider>
     </entry>

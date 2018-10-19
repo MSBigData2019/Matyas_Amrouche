@@ -34,7 +34,11 @@ git_token = pd.read_csv('/Users/matyasamrouche/Documents/Master Telecom Big Data
 # Récupère les données du contibuteur souhaité
 def get_json_data_all_repos(contributor, i):
     url_test = 'https://api.github.com/users/'+contributor+'/repos?page='+str(i)+'&per_page=100'
-    res = requests.get(url_test, headers={"Authorization": 'token %s' % git_token})
+    while True:
+        res = requests.get(url_test, headers={"Authorization": 'token %s' % git_token})
+        if res.status_code == 200:
+            break
+        time.sleep(1)
     repos = res.json()
     return repos
 
@@ -42,10 +46,7 @@ def get_json_data_all_repos(contributor, i):
 def get_stars_contributor(contributor_repos):
     stars = 0
     for repo in contributor_repos:
-        #print(type(repo))
-        if type(repo) is dict:
-            stars += repo['stargazers_count']
-    #stars = sum(repo['stargazers_count'] for repo in contributor_repos)
+        stars += repo['stargazers_count']
     return stars
 
 def average_stars(contributor):
@@ -61,7 +62,7 @@ def average_stars(contributor):
         average = 0
     else:
         average = round(stars / nb_repos, 1)
-    #print(contributor, average, nb_repos)
+    #print(contributor, nb_repos, average)
     return average
 
 
