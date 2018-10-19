@@ -42,32 +42,27 @@ def get_json_data_all_repos(contributor, i):
     repos = res.json()
     return repos
 
-
+# Compte le nombre d'étoiles 
 def get_stars_contributor(contributor_repos):
-    stars = 0
+    stars = pd.DataFrame(columns=['Stars'])
+    i = 0
     for repo in contributor_repos:
-        stars += repo['stargazers_count']
+        stars.loc[i] = repo['stargazers_count']
+        i += 1
     return stars
 
 def average_stars(contributor):
     i = 1
-    stars = 0
-    nb_repos = 0
+    stars = pd.DataFrame(columns=['Stars'])
     while len(get_json_data_all_repos(contributor, i)) > 0:
         contributor_repos = get_json_data_all_repos(contributor, i)
-        stars += get_stars_contributor(contributor_repos)
-        nb_repos += len(contributor_repos)
+        stars = stars.append(get_stars_contributor(contributor_repos))
         i += 1
-    if nb_repos == 0:
-        average = 0
-    else:
-        average = round(stars / nb_repos, 1)
-    #print(contributor, nb_repos, average)
-    return average
+    return round(stars['Stars'].mean(), 1)
 
 
 # Nombre de stars moyen pour chaque contributeur
-def get_average_stars_bis(list_contributors):
+def get_average_stars_contributor(list_contributors):
     rated_contributors = pd.DataFrame(columns=['Contributors', 'Average Stars'])
     pool = Pool(5)
     average_list = list(pool.map(average_stars, list_contributors['Contributors']))
@@ -79,13 +74,18 @@ def get_average_stars_bis(list_contributors):
 
 def main() :
     start_time = time.time()
-    list_contributors = get_list_contributors(link)
-    rated_contributors = get_average_stars_bis(list_contributors)
+
+    headers = {'Authorization': 'token {}'.format(git_token)}
+    requests.get("https://api.github.com/rate_limit", headers=headers).content
+    r1 = requests.get("https://api.github.com/rate_limit", headers=headers).json()["rate"]["remaining"]
+
+    list_contributors = get_list_contributors(link)[0:30]
+    rated_contributors = get_average_stars_contributor(list_contributors)
     print(rated_contributors)
-    print("--- %s seconds ---" % (time.time() - start_time))
+    r2 = requests.get("https://api.github.com/rate_limit", headers=headers).json()["rate"]["remaining"]
+    print("Requêtes utilisés :", r1-r2)
+    print("--- %s seconds ---" % round((time.time() - start_time), 2))
 
 if __name__ == '__main__':
     main()
-
-
 
