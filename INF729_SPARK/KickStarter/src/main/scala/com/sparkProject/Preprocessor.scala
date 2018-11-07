@@ -7,7 +7,7 @@ import org.apache.spark.sql.functions.udf
 object Preprocessor {
 
   def main(args: Array[String]): Unit = {
-
+  /*
     // Des réglages optionels du job spark. Les réglages par défaut fonctionnent très bien pour ce TP
     // on vous donne un exemple de setting quand même
     val conf = new SparkConf().setAll(Map(
@@ -96,7 +96,7 @@ object Preprocessor {
     val dfCountry = df2.withColumn("country2", udfCountry($"country", $"currency"))
       .withColumn("currency2", udfCurrency($"currency"))
       .drop("country", "currency")
-
+  */
   }
 
 }
