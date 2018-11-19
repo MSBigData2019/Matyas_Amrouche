@@ -1,0 +1,5 @@
+Logistic regression with scala sparkml lib to predict if a Kickstarter project is going to reach his goal.
+
+
+Run KickStarter/src/main/scala/com/sparkProject/Trainer.scala to see the score of the model and the predictions 
+with this command : /build_and_submit.sh Trainer
